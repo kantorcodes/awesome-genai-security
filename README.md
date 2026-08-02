@@ -1,8 +1,18 @@
-# Awesome GenAI Security
+# Awesome GenAI Security [![Awesome](https://awesome.re/badge-flat2.svg)](https://awesome.re)
+
+[![Focus: GenAI & Agentic AI Security](https://img.shields.io/badge/Focus-GenAI%20%26%20Agentic%20AI%20Security-8b5cf6)](#table-of-contents)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![Last Commit](https://img.shields.io/github/last-commit/jassics/awesome-genai-security)](https://github.com/jassics/awesome-genai-security/commits/main)
+
 A curated list of links, references, books, videos, tutorials (Free or Paid), Exploit, CTFs, Hacking Practices, etc., which are related to GenAI, LLM, RAG, MCP, Agents, and Agentic AI security.
 
+> **Note:** `awesome-agentic-ai-security` has been folded into this list. Agentic AI security — agent foundations, frameworks, autonomy risks, MCP, and multi-agent threats — now lives here alongside LLM and RAG security.
+
 ## Table of Contents
+- [Foundations & Key Concepts](#foundations--key-concepts)
 - [GenAI Security Papers & Standards](#genai-security-papers--standards)
+- [Agent Frameworks & Agentic Engineering](#agent-frameworks--agentic-engineering)
 - [AI Security Books](#ai-security-books)
 - [AI Security Videos](#ai-security-videos)
 - [Online Tutorials / Blogs / Presentations](#online-tutorials--blogs--presentations)
@@ -14,9 +24,22 @@ A curated list of links, references, books, videos, tutorials (Free or Paid), Ex
 - [GenAI Security Attacks, Breaches & Incidents](#genai-security-attacks-breaches--incidents)
 - [Regulatory Frameworks & Governance](#regulatory-frameworks--governance)
 - [Newsletters & Communities](#newsletters--communities)
+- [Contributing](#contributing)
 - [Contributors](#contributors)
 ---
 ![GenAI security banner](awesome-genai-security-banner.png)
+
+## Foundations & Key Concepts
+Background worth having before the security material — how agents plan, remember, and act.
+
+1. [Building Effective Agents](https://www.anthropic.com/research/building-effective-agents) - Anthropic's practical guide to agent patterns (workflows vs. agents).
+2. [A Practical Guide to Building Agents](https://platform.openai.com/docs/guides/agents) - OpenAI's guidance on agent design and orchestration.
+3. [ReAct: Reasoning + Acting (Yao et al., 2023)](https://arxiv.org/abs/2210.03629) - The reason-and-act loop underpinning tool-using agents.
+4. [Chain-of-Thought Prompting (Wei et al., 2022)](https://arxiv.org/abs/2201.11903) - The reasoning foundation behind planning and task decomposition.
+5. [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) - Open standard for connecting agents to tools and data.
+6. [Awesome Agentic Engineering](https://github.com/natnew/Awesome-Agentic-Engineering) - A reference stack for production-grade agentic systems.
+
+**Why autonomy changes the threat model:** when a system can *act* — write files, move money, send emails, run code, chain tools — a single bad decision or malicious input costs far more than a bad answer. Agentic systems inherit every LLM/RAG risk and add indirect prompt injection, the "lethal trifecta", excessive agency, memory poisoning, delegated identity, multi-agent trust, and a runtime tool/MCP supply chain.
 
 ## GenAI Security Papers & Standards
 Important papers, standards, and checklists from organizations like OWASP, NIST, and others.
@@ -38,6 +61,19 @@ Important papers, standards, and checklists from organizations like OWASP, NIST,
 15. [OWASP Securing Agentic Applications Guide 1.0](https://genai.owasp.org/resource/securing-agentic-applications-guide-1-0/) - Reference architecture and controls for building secure agentic apps.
 16. [CSA MAESTRO - Agentic AI Threat Modeling Framework](https://cloudsecurityalliance.org/blog/2025/02/06/agentic-ai-threat-modeling-framework-maestro) - Seven-layer threat modeling for agentic AI systems.
 17. [Microsoft: Zero Trust for AI (Tools & Guidance)](https://www.microsoft.com/en-us/security/blog/2026/03/19/new-tools-and-guidance-announcing-zero-trust-for-ai/) - Applying Zero Trust principles to AI agents and workloads.
+18. [OWASP Agentic Security Initiative](https://genai.owasp.org/initiatives/#agentic) - Threats & mitigations, multi-agent threat modeling, and reference guides.
+19. [Vulnerable Autonomous Agents Threat Model](https://github.com/jsotiro/ThreatModels) - LLM threat models for autonomous agents.
+20. [Top 10 Agentic AI Security Risks - Key Threats and Mitigation Strategies (PDF)](https://46710127.fs1.hubspotusercontent-na2.net/hubfs/46710127/Documents/Top%2010%20Agentic%20AI%20Security%20Risks-Key%20Threats%20and%20Mitigation%20Strategies.pdf) - Industry threat/mitigation reference.
+
+## Agent Frameworks & Agentic Engineering
+The frameworks you'll be securing — knowing how they orchestrate tools, state, and control flow is half the job.
+
+1. [LangGraph](https://langchain-ai.github.io/langgraph/) - Graph-based orchestration for stateful, multi-actor agents.
+2. [Microsoft AutoGen](https://microsoft.github.io/autogen/) - Multi-agent conversation framework.
+3. [CrewAI](https://github.com/crewAIInc/crewAI) - Role-based multi-agent orchestration.
+4. [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) - Lightweight framework for agentic apps.
+5. [Pydantic AI](https://ai.pydantic.dev/) - Type-safe agent framework.
+6. [LlamaIndex](https://www.llamaindex.ai/) - Data framework and agent workflows.
 
 ## AI Security Books
 1. [AI Value Creators](https://www.flipkart.com/ai-value-creators/p/itm84255392ef02e)
@@ -88,6 +124,8 @@ Articles and guides covering LLM, RAG, and general GenAI security.
 2. [Pillar Security: MCP Security Research](https://www.pillar.security/blog/the-security-risks-of-model-context-protocol-mcp)
 3. [Agentic Security Risks - OWASP](https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/)
 4. [Tool Poisoning Attacks in MCP](https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks)
+5. [The lethal trifecta for AI agents](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/) - Private data + untrusted content + exfiltration = a data leak waiting to happen.
+6. [Imprompter: Tricking LLM Agents into Improper Tool Use](https://imprompter.ai/) - Attack demonstration against tool-using agents.
 
 ### LLM Attacks
 1. [Web LLM attacks - PortSwigger](https://portswigger.net/web-security/llm-attacks)
@@ -127,6 +165,8 @@ Tools for defending, scanning, and auditing GenAI systems.
 9. [Fickling (Trail of Bits)](https://github.com/trailofbits/fickling) - Decompiler, static analyzer, and safety scanner for malicious pickle/PyTorch model files.
 10. [ModelAudit](https://github.com/promptfoo/modelaudit) - Static scanner detecting malicious code/backdoors across 40+ ML model file formats.
 11. [AIsbom](https://aisbom.io/) - CLI that scans model files for malware and generates CycloneDX/SPDX AI SBOMs.
+12. [Agentic Radar (SPLX)](https://github.com/splx-ai/agentic-radar) - Security scanner that maps and analyzes agentic workflows.
+13. [Giskard](https://github.com/Giskard-AI/giskard) - Testing and scanning framework for ML/LLM systems.
 
 ### Offensive / Red Teaming
 1. [AI/ML Exploits](https://github.com/protectai/ai-exploits)
@@ -145,9 +185,9 @@ Tools for defending, scanning, and auditing GenAI systems.
 3. [Vigil - LLM Prompt Injection Detection](https://github.com/deadbits/vigil-llm)
 4. [Lakera Guard](https://www.lakera.ai/) - Real-time AI security for prompt injection and data leakage.
 5. [Omega Walls](https://github.com/synqratech/omega-walls) - Open-source stateful prompt injection defense for RAG and agent pipelines, built as a runtime trust boundary across untrusted content, memory, context, and tools.
-5. [Trylon Gateway](https://github.com/trylonai/gateway) - Self-hosted open-source AI firewall/proxy applying custom guardrails (prompt-injection defense, PII redaction).
-6. [Bifrost AI Gateway](https://github.com/maximhq/bifrost) - High-performance open-source AI gateway unifying 20+ LLM providers with governance and policy enforcement.
-7. [HOL Guard](https://github.com/hashgraph-online/hol-guard) - Local-first security harness that intercepts tool calls in AI coding agents before files change or network is contacted. Scans skills, MCP servers, and plugins for supply-chain threats.
+6. [Trylon Gateway](https://github.com/trylonai/gateway) - Self-hosted open-source AI firewall/proxy applying custom guardrails (prompt-injection defense, PII redaction).
+7. [Bifrost AI Gateway](https://github.com/maximhq/bifrost) - High-performance open-source AI gateway unifying 20+ LLM providers with governance and policy enforcement.
+8. [HOL Guard](https://github.com/hashgraph-online/hol-guard) - Local-first security harness that intercepts tool calls in AI coding agents before files change or network is contacted. Scans skills, MCP servers, and plugins for supply-chain threats.
 
 ## Security Practices and CTFs
 Practice your skills with these vulnerable applications and challenges.
@@ -166,6 +206,7 @@ Practice your skills with these vulnerable applications and challenges.
 12. [AI Goat](https://github.com/dhammon/ai-goat) - Vulnerable LLM CTF built on AWS.
 13. [Microsoft AI Red Teaming Playground Labs](https://github.com/microsoft/AI-Red-Teaming-Playground-Labs) - Hands-on red-teaming challenges (prompt injection, indirect injection, guardrail bypass) with Docker/Kubernetes deployment.
 14. [PortSwigger Web Security Academy: Web LLM Attacks](https://portswigger.net/web-security/llm-attacks) - Free official hands-on labs on exploiting LLM APIs, excessive agency, and prompt injection.
+15. [Vulnerable LLM apps (GitHub topic)](https://github.com/topics/vulnerable-llm) - Index of intentionally vulnerable LLM apps to practice on.
 
 ## AI Red Teaming
 Resources and methodologies for red teaming AI/GenAI systems.
@@ -203,6 +244,7 @@ Notable real-world incidents involving GenAI and LLM security.
 20. [ChatGPT Data Leak Bug (2023)](https://openai.com/index/march-20-chatgpt-outage/) - Bug exposed chat history titles and payment info of other users.
 21. [GitHub Copilot Leaking Secrets (2023)](https://blog.gitguardian.com/yes-github-copilot-can-leak-secrets/) - AI code assistant reproducing secrets from training data.
 22. [Microsoft Tay Bot Manipulation (2016)](https://en.wikipedia.org/wiki/Tay_(chatbot)) - Twitter chatbot manipulated into generating offensive content.
+23. [Here Come the AI Worms (Wired, 2024)](https://www.wired.com/story/here-come-the-ai-worms/) - Morris II: self-propagating prompt-injection worms spreading between AI agents.
 
 ## Regulatory Frameworks & Governance
 1. [EU AI Act](https://artificialintelligenceact.eu/) - EU regulation on artificial intelligence.
@@ -211,6 +253,7 @@ Notable real-world incidents involving GenAI and LLM security.
 4. [U.S. AI Executive Order (2025): Removing Barriers to American Leadership in AI](https://www.federalregister.gov/documents/2025/01/31/2025-02172/removing-barriers-to-american-leadership-in-artificial-intelligence) - The Trump administration's Jan 2025 EO; it revoked Biden's [EO 14110 (2023)](https://en.wikipedia.org/wiki/Executive_Order_14110) on Safe, Secure & Trustworthy AI.
 5. [India AI Governance Guidelines (IndiaAI / MeitY)](https://www.indiaai.gov.in/) - India's national AI strategy and governance guidance.
 6. [Singapore Model AI Governance Framework](https://www.pdpc.gov.sg/help-and-resources/2020/01/model-ai-governance-framework)
+7. [UK - International AI Safety Report](https://www.gov.uk/government/publications/international-ai-safety-report-2025) - Frontier AI risk assessment led by Yoshua Bengio.
 
 ## Newsletters & Communities
 1. [OWASP GenAI Slack Channel](https://owasp.slack.com/) - Join #project-top10-for-llm channel.
@@ -219,5 +262,14 @@ Notable real-world incidents involving GenAI and LLM security.
 4. [The AI Security Newsletter by Ken Huang](https://www.linkedin.com/newsletters/ai-security-newsletter-7153297736498069504/)
 5. [Protect AI Blog (now part of Palo Alto Networks)](https://protectai.com/blog)
 
+## Contributing
+Found a great paper, tool, course, CTF, or incident writeup on GenAI, LLM, RAG, MCP, or agentic AI security? Read [CONTRIBUTING.md](CONTRIBUTING.md) and open a pull request. Small additions are very welcome.
+
 ## Contributors
+Thanks to everyone who helps keep this list current — including everyone who has landed a PR here. Your name could be next.
+
 *   [Sanjeev Jaiswal](https://github.com/jassics)
+
+---
+
+_Licensed under [GPL-3.0](LICENSE)._
