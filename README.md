@@ -266,9 +266,15 @@ Notable real-world incidents involving GenAI and LLM security.
 Found a great paper, tool, course, CTF, or incident writeup on GenAI, LLM, RAG, MCP, or agentic AI security? Read [CONTRIBUTING.md](CONTRIBUTING.md) and open a pull request. Small additions are very welcome.
 
 ## Contributors
-Thanks to everyone who helps keep this list current — including everyone who has landed a PR here. Your name could be next.
+Thanks to everyone who helps keep this list current. Your name could be next — open a PR!
 
-*   [Sanjeev Jaiswal](https://github.com/jassics)
+*   [Sanjeev Jaiswal](https://github.com/jassics) - maintainer
+*   [mldangelo](https://github.com/mldangelo) - promptfoo
+*   Aj7ay7 - Practical DevSecOps CAISP certification
+*   [anviren](https://github.com/anviren) - Omega Walls
+*   [kantorcodes](https://github.com/kantorcodes) - HOL Guard
+*   [awdemos](https://github.com/awdemos) - Redcells
+*   [K4r1it0](https://github.com/K4r1it0) - PromptTrace
 
 ---
 
